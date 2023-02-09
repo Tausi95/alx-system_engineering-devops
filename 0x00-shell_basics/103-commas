@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -A | sort -t. -k1,1 | awk "BEGIN{OFS=","}END"
