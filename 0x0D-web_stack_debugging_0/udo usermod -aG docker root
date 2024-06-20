@@ -1,0 +1,21 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Tue 2024-06-18 00:46:19 SAST; 9min ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 8629 (dockerd)
+      Tasks: 10
+     Memory: 28.5M
+     CGroup: /system.slice/docker.service
+             └─8629 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Jun 18 00:46:17 mage107-Inspiron-3543 systemd[1]: Starting Docker Application Container Engine...
+Jun 18 00:46:17 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:17.378374053+02:00" level=info msg="Starting up"
+Jun 18 00:46:17 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:17.379583137+02:00" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.conf"
+Jun 18 00:46:18 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:18.658668226+02:00" level=info msg="Loading containers: start."
+Jun 18 00:46:19 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:19.165806015+02:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+Jun 18 00:46:19 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:19.376670974+02:00" level=info msg="Loading containers: done."
+Jun 18 00:46:19 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:19.565480249+02:00" level=info msg="Docker daemon" commit=de5c9cf containerd-snapshotter=false storage-driver=overlay2 version=26.1.4
+Jun 18 00:46:19 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:19.565676007+02:00" level=info msg="Daemon has completed initialization"
+Jun 18 00:46:19 mage107-Inspiron-3543 dockerd[8629]: time="2024-06-18T00:46:19.990607457+02:00" level=info msg="API listen on /run/docker.sock"
+Jun 18 00:46:19 mage107-Inspiron-3543 systemd[1]: Started Docker Application Container Engine.
