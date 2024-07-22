@@ -8,7 +8,7 @@ sudo apt-get install -y ufw
 
 echo -e "configuring UFW...\n"
 
-# Allow Outgoing and Deny Incoming
+# Allow Outgoing & deny Incoming
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
@@ -17,7 +17,7 @@ sudo ufw allow 22
 sudo ufw allow 80
 sudo ufw allow 443
 
-# Enable Fire Wall
+# Enable FireWall
 sudo ufw enable
 
 echo -e "Process Completed.\n"
