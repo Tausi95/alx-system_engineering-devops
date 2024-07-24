@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# This script configures Nginx to run as the nginx user and listen on port 8080
+
+# Ensure Nginx is installed
+if ! command -v nginx &> /dev/null; then
+	    echo "Nginx is not installed. Installing Nginx..."
+	        sudo apt update
+		    sudo apt install -y nginx
+fi
+
+# Update Nginx configuration to listen on port 8080
+NGINX_DEFAULT_CONF="/etc/nginx/sites-available/default"
+if [ -f "$NGINX_DEFAULT_CONF" ]; then
+	    sudo sed -i 's/listen 80;/listen 8080;/' "$NGINX_DEFAULT_CONF"
+    else
+	        echo "$NGINX_DEFAULT_CONF does not exist."
+		    exit 1
+fi
+
+# Update Nginx configuration to run as nginx user
+NGINX_CONF="/etc/nginx/nginx.conf"
+if [ -f "$NGINX_CONF" ]; then
+	    sudo sed -i 's/user www-data;/user nginx;/' "$NGINX_CONF"
+    else
+	        echo "$NGINX_CONF does not exist."
+		    exit 1
+fi
+
+# Ensure the nginx user exists
+if ! id -u nginx >/dev/null 2>&1; then
+	    echo "Creating nginx user..."
+	        sudo useradd -r nginx
+fi
+
+# Restart Nginx to apply changes
+echo "Restarting Nginx..."
+sudo service nginx restart

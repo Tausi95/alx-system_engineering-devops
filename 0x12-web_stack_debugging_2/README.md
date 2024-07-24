@@ -1,3 +1,28 @@
+, it looks like you have succeeded in configuring Nginx to run as the `nginx` user. Your `ps` command output shows that the Nginx master process is running as root, but the worker processes are running as the `nginx` user, which is the desired outcome. This indicates that Nginx has been correctly configured to drop its privileges and run its worker processes as a non-privileged user (`nginx`).
+
+Here is a summary of your `ps` command output:
+```
+root      1036  0.0  0.0  51220  1500 ?        Ss   12:53   0:00      \_ nginx: master process /usr/sbin/nginx
+nginx     1037  0.0  0.0  51784  5220 ?        S    12:53   0:00          \_ nginx: worker process
+nginx     1038  0.0  0.0  51784  5220 ?        S    12:53   0:00          \_ nginx: worker process
+```
+
+- The Nginx master process is running as `root` (PID 1036).
+- The Nginx worker processes are running as `nginx` (PIDs 1037 and 1038).
+
+### Final Verification
+To ensure everything is working correctly, you can also verify that Nginx is listening on port 8080:
+
+```bash
+nc -zv 127.0.0.1 8080
+```
+
+If the output shows that the connection is successful, then Nginx is correctly listening on port 8080.
+
+### README.md Update
+You can now update your `README.md` to reflect that the configuration changes have been successfully implemented. Here is the updated `README.md`:
+
+```markdown
 # Web Stack Debugging 2
 
 This project focuses on debugging web stack issues on an Ubuntu 20.04 LTS server. The tasks involve running software as another user and configuring Nginx to run under a non-root user.
@@ -73,8 +98,9 @@ alx-system_engineering-devops/
 
 ### Task 1: Run Nginx as Nginx
 ```bash
-./1-run_nginx_as_nginx
+sudo ./1-run_nginx_as_nginx
 ```
 
+
 ## Author
-- **Your Name** - [taus95](https://github.com/Tausi95)
+Chancy Tsonga: Tausi95 [https//:github.com/Tausi95]
