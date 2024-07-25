@@ -1,0 +1,7 @@
+# SSH client configuration file to use the private key ~/.ssh/school and refuse password authentication
+
+Host 54.89.75.172
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
+  User ubuntu
+
